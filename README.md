@@ -54,6 +54,9 @@ We are seeking a Machine Learning Engineer to enhance the conversational AI capa
   - A detailed description and rationale for improvement and next steps in the project.
   - Your code and mock data.
 
+### Part 4: Making your code available
+- Share your final work with us via git repo link, at the latest 24 hours before your interview (Github usernames: @simonwh, @cshulby)
+
 ### Evaluation Criteria
 - Understanding of Kin’s functionalities.
 - Creativity and relevance of the improvement.
@@ -65,5 +68,6 @@ In your technical interview, we will discuss:
 - Your experience with Kin.
 - Your proposed improvement and implementation details.
 - Potential modifications if more time were to be available (e.g., a full project).
+
 
 
