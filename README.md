@@ -55,7 +55,7 @@ We are seeking a Machine Learning Engineer to enhance the conversational AI capa
   - Your code and mock data.
 
 ### Part 4: Making your code available
-- Share your final work with us via git repo link, at the latest 24 hours before your interview (Github usernames: @simonwh, @cshulby)
+- Share your final work with us via git repo link, at the latest 24 hours before your interview (Github usernames: @cshulby, @simonwh, and @demchuk-alex)
 
 ### Evaluation Criteria
 - Understanding of Kin’s functionalities.
