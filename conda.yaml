@@ -9,3 +9,4 @@ dependencies:
   - pytest=8.2.1
   - pytest-env
   - pytest-cov
+  - pre-commit=3.6.1
