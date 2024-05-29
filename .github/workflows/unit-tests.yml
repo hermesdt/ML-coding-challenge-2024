@@ -1,0 +1,31 @@
+name: 'Python Unit Tests'
+
+on:
+  push:
+    branches:
+      - **
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  run-tests:
+    name: 'Python Unit Tests'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          micromamba-version: '1.5.6-0' # any version from https://github.com/mamba-org/micromamba-releases
+          environment-file: conda.yml
+          init-shell: >-
+            bash
+          cache-environment: true
+          post-cleanup: 'all'
+
+      - name: Run unit tests
+        run: |
+          python -m pytest
