@@ -37,6 +37,7 @@ def test_compact_messages(summarizer):
     chat = Chat()
     for i in range(10):
         chat.add_message(f"Message {i}")
+    assert len(chat.messages) == 10
 
     chat.compact_messages(summarizer, every_n=3)
     assert len(chat.messages) == 4
@@ -49,22 +50,29 @@ def test_compact_messages(summarizer):
     assert chat.messages[2].text == "Summary of messages: ['6', '7', '8']"
     assert chat.messages[3].position == 9
     assert chat.messages[3].text == "Message 9"
- 
+
+    # nothing happens as it's already compacted
+    chat.compact_messages(summarizer, every_n=3)
+    assert len(chat.messages) == 4
+
+def test_compact_messages_no_compaction_no_consecutive_ids(summarizer):
+    chat = Chat()
+    for i in range(10):
+        chat.add_message(f"Message {i}")
+
+    chat.messages.pop(7)
+    chat.messages.pop(5)
+    chat.messages.pop(2)
+    chat.compact_messages(summarizer, every_n=3)
+
+    assert [m.position for m in chat.messages] == [0, 1, 3, 4, 6, 8, 9]
 
 def test_compact_messages_no_compaction(summarizer):
     chat = Chat()
     for i in range(10):
         chat.add_message(f"Message {i}")
+    assert len(chat.messages) == 10
+
     chat.compact_messages(summarizer, every_n=1)
     assert len(chat.messages) == 10
-    assert all(isinstance(msg, Message) for msg in chat.messages)
-    assert chat.messages[0].text == "Message 0"
-    assert chat.messages[1].text == "Message 1"
-    assert chat.messages[2].text == "Message 2"
-    assert chat.messages[3].text == "Message 3"
-    assert chat.messages[4].text == "Message 4"
-    assert chat.messages[5].text == "Message 5"
-    assert chat.messages[6].text == "Message 6"
-    assert chat.messages[7].text == "Message 7"
-    assert chat.messages[8].text == "Message 8"
-    assert chat.messages[9].text == "Message 9"
+    

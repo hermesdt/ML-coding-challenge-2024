@@ -27,8 +27,9 @@ class Chat(BaseModel):
                 continue
 
             # if not consecutive messages, clear the buffer and start over
+            # we only want to compact consecutive messages
             if msgs_to_be_compacted and msgs_to_be_compacted[-1].position != message.position - 1:
-                msgs_after_compaction.extend(msgs_to_be_compacted)
+                msgs_after_compaction.extend(msgs_to_be_compacted + [message])
                 msgs_to_be_compacted.clear()
                 continue
 

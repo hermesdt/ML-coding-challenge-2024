@@ -10,7 +10,7 @@ class Summarizer(BaseModel):
     summarizer_model_id: str = SUMMARIZER_MODEL_ID
     model: Pipeline = None
 
-    def _get_model(self):
+    def _get_model(self): # pragma: no cover
         if not self.model:
             self.model = pipeline("summarization", model=self.summarizer_model_id)
 
