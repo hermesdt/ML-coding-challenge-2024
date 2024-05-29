@@ -1,0 +1,5 @@
+settings.json
+launch.json
+*.pyc
+__pycache__
+.coverage
