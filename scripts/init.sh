@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Install the required packages
-conda update env -f environment.yml
+mamba env update -f conda.yaml
 
 # Install pre-commit hooks
 pre-commit install
